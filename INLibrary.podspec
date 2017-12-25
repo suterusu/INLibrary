@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = 'INLibrary'
-  s.version          = '0.1.0'
-  s.summary          = 'A short description of INLibrary.'
+  s.version          = '0.0.1'
+  s.summary          = 'my private library'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -21,11 +21,11 @@ Pod::Spec.new do |s|
 TODO: Add long description of the pod here.
                        DESC
 
-  s.homepage         = 'https://github.com/suterusu2005@gmail.com/INLibrary'
+  s.homepage         = 'https://github.com/suterusu/INLibrary'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'suterusu2005@gmail.com' => 'git@bitbucket.org:Suterusu1988/memorybrowser.git' }
-  s.source           = { :git => 'https://github.com/suterusu2005@gmail.com/INLibrary.git', :tag => s.version.to_s }
+  s.author           = { 'gyuuuuchan@gmail.com' => 'https://github.com/suterusu' }
+  s.source           = { :git => 'https://github.com/suterusu/INLibrary.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'

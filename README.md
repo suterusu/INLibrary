@@ -6,6 +6,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/INLibrary.svg?style=flat)](http://cocoapods.org/pods/INLibrary)
 
 ## Example
+個人用ライブラリです。
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 

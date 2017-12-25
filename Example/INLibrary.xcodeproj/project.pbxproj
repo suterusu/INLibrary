@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08F1A7221FF01C3800096C13 /* NSLocale+IN.m in Sources */ = {isa = PBXBuildFile; fileRef = 08F1A7211FF01C3800096C13 /* NSLocale+IN.m */; };
 		1DF04234ADE0ABC0B89FC3F4 /* Pods_INLibrary_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94AAE3F4F3A25D74F5D08303 /* Pods_INLibrary_Tests.framework */; };
 		4353E1B185CF519EEA71F335 /* Pods_INLibrary_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBCC263469928591E219A040 /* Pods_INLibrary_Example.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -37,7 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		34E31BE92880E755E90CB277 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		08F1A7201FF01C3800096C13 /* NSLocale+IN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLocale+IN.h"; sourceTree = "<group>"; };
+		08F1A7211FF01C3800096C13 /* NSLocale+IN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLocale+IN.m"; sourceTree = "<group>"; };
+		34E31BE92880E755E90CB277 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		377F844AEE6C68040FF00A84 /* Pods-INLibrary_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-INLibrary_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-INLibrary_Example/Pods-INLibrary_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* INLibrary_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = INLibrary_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -58,9 +61,9 @@
 		6003F5B9195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F5BB195388D20070C39A /* Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Tests.m; sourceTree = "<group>"; };
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
-		6B9A5931EC84D6567E0AB98D /* INLibrary.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = INLibrary.podspec; path = ../INLibrary.podspec; sourceTree = "<group>"; };
+		6B9A5931EC84D6567E0AB98D /* INLibrary.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = INLibrary.podspec; path = ../INLibrary.podspec; sourceTree = "<group>"; };
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		83F0D8125FF8938AD48BB34E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		83F0D8125FF8938AD48BB34E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8ED17796510FB65C21A72BD3 /* Pods-INLibrary_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-INLibrary_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-INLibrary_Example/Pods-INLibrary_Example.release.xcconfig"; sourceTree = "<group>"; };
 		94AAE3F4F3A25D74F5D08303 /* Pods_INLibrary_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_INLibrary_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -137,6 +140,8 @@
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
 				6003F5A5195388D20070C39A /* INViewController.h */,
 				6003F5A6195388D20070C39A /* INViewController.m */,
+				08F1A7201FF01C3800096C13 /* NSLocale+IN.h */,
+				08F1A7211FF01C3800096C13 /* NSLocale+IN.m */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -250,6 +255,10 @@
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "suterusu2005@gmail.com";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 3AKMJEDD3X;
+						ProvisioningStyle = Automatic;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -406,6 +415,7 @@
 				6003F59E195388D20070C39A /* INAppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* INViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				08F1A7221FF01C3800096C13 /* NSLocale+IN.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,12 +543,15 @@
 			baseConfigurationReference = 377F844AEE6C68040FF00A84 /* Pods-INLibrary_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3AKMJEDD3X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "INLibrary/INLibrary-Prefix.pch";
 				INFOPLIST_FILE = "INLibrary/INLibrary-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -548,12 +561,15 @@
 			baseConfigurationReference = 8ED17796510FB65C21A72BD3 /* Pods-INLibrary_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = 3AKMJEDD3X;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "INLibrary/INLibrary-Prefix.pch";
 				INFOPLIST_FILE = "INLibrary/INLibrary-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.demo.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
