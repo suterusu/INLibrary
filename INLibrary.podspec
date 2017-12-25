@@ -27,6 +27,7 @@ TODO: Add long description of the pod here.
   s.author           = { 'gyuuuuchan@gmail.com' => 'https://github.com/suterusu' }
   s.source           = { :git => 'https://github.com/suterusu/INLibrary.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+  s.library = 'z'
 
   s.ios.deployment_target = '8.0'
 
