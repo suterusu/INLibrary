@@ -10,6 +10,8 @@
 
 @interface UIViewController (INUtil)
 
++(UIViewController *)topParentViewController;
+
 -(void)showAlertAtTitle:(NSString *)title Message:(NSString *)message;
 
 -(void)showAlertAtTitle:(NSString *)title Message:(NSString *)message Yeshandler:(void (^)(UIAlertAction *action))handler;

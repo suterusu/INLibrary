@@ -11,6 +11,7 @@
 
 @implementation NSData (INUtil)
 
+
 //https://qiita.com/odaman68000/items/d33096abfa1d9e8f6aca
 - (z_stream)initialized_zStream {
     z_stream zStream;

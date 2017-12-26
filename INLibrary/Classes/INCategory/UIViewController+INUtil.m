@@ -10,6 +10,14 @@
 
 @implementation UIViewController (INUtil)
 
++(UIViewController *)topParentViewController{
+    UIViewController *ret = [UIApplication sharedApplication].keyWindow.rootViewController;
+    while (ret.presentedViewController) {
+        ret = ret.presentedViewController;
+    }
+    return ret;
+}
+
 -(void)showAlertAtTitle:(NSString *)title Message:(NSString *)message{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
     [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"CommonText_YES", nil) style:UIAlertActionStyleDefault handler:nil]];
