@@ -5,7 +5,7 @@
 //  Created by Inba on 2017/12/26.
 //
 //
-
+#import <objc/runtime.h>
 #import "NSMutableArray+INTest.h"
 
 @implementation NSMutableArray (INTest)
