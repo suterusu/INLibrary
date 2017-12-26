@@ -45,8 +45,7 @@
 }
 
 
-+(void)switchLoggingMethod
-{
++(void)startTest{
     [self switchInstanceMethodFrom:@selector(removeAllObjects)        To:@selector(logRemoveAllObjects)       ];
     [self switchInstanceMethodFrom:@selector(removeObject:)        To:@selector(logRemoveObject:)       ];
     [self switchInstanceMethodFrom:@selector(addObject:)    To:@selector(logAddObject:)   ];
