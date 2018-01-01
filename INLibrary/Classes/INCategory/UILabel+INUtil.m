@@ -10,6 +10,7 @@
 
 @implementation UILabel (INUtil)
 
+
 - (void)adjustFontSizeToFitAtMaxFontSize:(CGFloat)max AtMinmumFontSize:(CGFloat)minmum Interval:(CGFloat)interval;
 {
     if (self.text) {
@@ -20,11 +21,12 @@
         {
             font = [font fontWithSize:maxSize];
             CGSize constraintSize = CGSizeMake(size.width, MAXFLOAT);
-            self.numberOfLines = 0;
-            CGSize labelSize = [self sizeThatFits:constraintSize];
             
+            NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
+            para.lineBreakMode = self.lineBreakMode;
             
-            if(labelSize.height <= size.height)
+            CGRect labelSize = [self.text boundingRectWithSize:constraintSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font,NSParagraphStyleAttributeName:para} context:nil];
+            if(labelSize.size.height <= size.height)
             {
                 self.font = font;
                 break;

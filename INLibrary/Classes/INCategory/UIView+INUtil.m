@@ -142,4 +142,26 @@
     self.frame = frame;
 }
 
+
+
+-(CGPoint)topRight{
+    return CGPointMake(self.right, self.top);
+}
+
+-(CGPoint)topLeft{
+    return CGPointMake(self.left, self.top);
+}
+
+-(CGPoint)bottomRight{
+    return CGPointMake(self.right, self.bottom);
+}
+
+-(CGPoint)bottomLeft{
+    return CGPointMake(self.left, self.bottom);
+}
+
+-(CGRect)expandedFrameTop:(CGFloat)top Left:(CGFloat)left Bottom:(CGFloat)bottom Right:(CGFloat)right{
+    return UIEdgeInsetsInsetRect(self.frame, UIEdgeInsetsMake(-top, -left, -bottom, -right));
+}
+
 @end

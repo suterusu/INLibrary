@@ -13,7 +13,7 @@
 
 -(CGRect)textRectForBounds:(CGRect)bounds limitedToNumberOfLines:(NSInteger)numberOfLines{
     CGRect defRect = [super textRectForBounds:bounds limitedToNumberOfLines:numberOfLines];
-    return UIEdgeInsetsInsetRect(defRect, UIEdgeOutsetMake(_inset));
+    return UIEdgeInsetsInsetRect(defRect, INEdgeOutsetMake(_inset));
 }
 
 - (void) drawTextInRect:(CGRect)rect

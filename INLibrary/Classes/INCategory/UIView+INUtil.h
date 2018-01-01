@@ -18,4 +18,10 @@
 @property (nonatomic, assign) CGFloat left, top, right, bottom;
 @property (nonatomic,readonly) CGPoint innerCenter;
 
+-(CGPoint)topRight;
+-(CGPoint)topLeft;
+-(CGPoint)bottomRight;
+-(CGPoint)bottomLeft;
+-(CGRect)expandedFrameTop:(CGFloat)top Left:(CGFloat)left Bottom:(CGFloat)bottom Right:(CGFloat)right;
+
 @end
