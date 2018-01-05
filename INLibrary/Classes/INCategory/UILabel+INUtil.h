@@ -10,7 +10,12 @@
 
 @interface UILabel (INUtil)
 
+
++(CGFloat)expectHeightForText:(NSString *)text Font:(UIFont *)font ByWidth:(CGFloat)width;
+-(CGFloat)expectHeightForText:(NSString *)text ByWidth:(CGFloat)width;
+
 //現在のUILabelでギリギリ収まるまでフォントサイズを小さくする
-- (void)adjustFontSizeToFitAtMaxFontSize:(CGFloat)max AtMinmumFontSize:(CGFloat)minmum Interval:(CGFloat)interval;
+//return 現在の高さ内に収まったら-1 そうでない場合は、minmumのフォントでギリギリ入る高さ
+- (CGFloat)adjustFontSizeToFitAtMaxFontSize:(CGFloat)max AtMinmumFontSize:(CGFloat)minmum Interval:(CGFloat)interval;
 
 @end

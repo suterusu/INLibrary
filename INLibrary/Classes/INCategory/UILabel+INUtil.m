@@ -7,34 +7,44 @@
 //
 
 #import "UILabel+INUtil.h"
+#import "UIView+INUtil.h"
 
 @implementation UILabel (INUtil)
 
++(CGFloat)expectHeightForText:(NSString *)text Font:(UIFont *)font ByWidth:(CGFloat)width{
+    UILabel *label =  [[self alloc]init];
+    label.text = text;
+    label.font = font;
+    return [label textRectForBounds:CGRectMake(0, 0, width, CGFLOAT_MAX) limitedToNumberOfLines:0].size.height;
+}
 
-- (void)adjustFontSizeToFitAtMaxFontSize:(CGFloat)max AtMinmumFontSize:(CGFloat)minmum Interval:(CGFloat)interval;
+-(CGFloat)expectHeightForText:(NSString *)text ByWidth:(CGFloat)width{
+    NSString *preText = self.text;
+    self.text = text;
+    CGFloat expectHeight = [self textRectForBounds:CGRectMake(0, 0, width, CGFLOAT_MAX) limitedToNumberOfLines:0].size.height;
+    self.text = preText;
+    return expectHeight;
+}
+
+- (CGFloat)adjustFontSizeToFitAtMaxFontSize:(CGFloat)max AtMinmumFontSize:(CGFloat)minmum Interval:(CGFloat)interval;
 {
+    CGFloat idealHeight = 0;
     if (self.text) {
-        UIFont *font = self.font;
         CGSize size = self.frame.size;
         
-        for (CGFloat maxSize = max; maxSize >= minmum; maxSize -= interval)
+        for (CGFloat fontSize = max; fontSize >= minmum; fontSize -= interval)
         {
-            font = [font fontWithSize:maxSize];
-            CGSize constraintSize = CGSizeMake(size.width, MAXFLOAT);
-            
-            NSMutableParagraphStyle *para = [[NSMutableParagraphStyle alloc] init];
-            para.lineBreakMode = self.lineBreakMode;
-            
-            CGRect labelSize = [self.text boundingRectWithSize:constraintSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font,NSParagraphStyleAttributeName:para} context:nil];
-            if(labelSize.size.height <= size.height)
+            self.font = [self.font fontWithSize:fontSize];
+            CGRect textRect = [self textRectForBounds:CGRectMake(0, 0, self.width, MAXFLOAT) limitedToNumberOfLines:0];
+            idealHeight = textRect.size.height;
+            if(textRect.size.height <= size.height)
             {
-                self.font = font;
-                break;
-            }//
+                return self.height;
+            }
         }
-        // set the font to the minimum size anyway
-        self.font = font;
     }
+    
+    return idealHeight;
 }
 
 @end
