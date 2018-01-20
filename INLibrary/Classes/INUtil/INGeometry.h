@@ -12,6 +12,22 @@
 #define INGeometry_h
 */
 
+#define SCREEN_WIDTH [UIScreen mainScreen].bounds.size.width
+#define SCREEN_HEIGHT [UIScreen mainScreen].bounds.size.height
+
+//INGeometry.hじゃないから今度作る！
+static inline void INLogForBits(NSUInteger uint) {
+    NSMutableString *str = [NSMutableString string];
+    for(NSInteger i = 0; i < 8 ; i++) {
+        // Prepend "0" or "1", depending on the bit
+        [str insertString:((uint & 1) ? @"1" : @"0") atIndex:0];
+        uint >>= 1;
+    }
+    
+    NSLog(@"Binary version: %@", str);
+    return;
+}
+
 
 static inline UIEdgeInsets INEdgeOutsetMake(UIEdgeInsets inset) {
     UIEdgeInsets outsets = {-inset.top, -inset.left, -inset.bottom, -inset.right};
