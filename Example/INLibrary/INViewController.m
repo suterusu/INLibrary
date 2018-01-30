@@ -9,6 +9,7 @@
 #import "INViewController.h"
 #import "objc/runtime.h"
 
+#import <INLibrary/INClass.h>
 
 @interface INViewController ()
 
@@ -19,7 +20,16 @@
 - (void)viewDidLoad
 {
     
+    INBarView *aa = [[INBarView alloc]initWithFrame:CGRectMake(20, 20,  50, 300)];
+    //aa.topText = @"テスト";
+    //aa.bottomText = @"眠い";
+    aa.middleText = @"32%";
+    aa.middleFont = [UIFont boldSystemFontOfSize:11];
+    aa.barFrontColor = [[UIColor redColor] colorWithAlphaComponent:0.5];
+    aa.percent = 0.9;
     
+    
+    [self.view addSubview:aa];
     
     NSDictionary *ss = [self properties];
     

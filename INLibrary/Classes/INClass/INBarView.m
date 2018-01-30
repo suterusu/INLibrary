@@ -7,6 +7,7 @@
 
 #import "INBarView.h"
 
+#define INBarViewTextAndBarSpace 2
 
 @interface INBarView ()
 
@@ -19,22 +20,63 @@
 -(instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self) {
-        self.opaque = NO;
-        self.backgroundColor = [UIColor clearColor];
+        [self defaultSetup];
     }
     
     return self;
 }
+- (instancetype)initWithFrame:(CGRect)frame
+{
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self defaultSetup];
 
+    }
+    return self;
+}
+
+-(void)defaultSetup{
+    self.opaque = NO;
+    self.backgroundColor = [UIColor clearColor];
+    self.topFont = [UIFont systemFontOfSize:10];
+    self.middleFont = [UIFont systemFontOfSize:10];
+    self.bottomFont = [UIFont systemFontOfSize:10];
+    self.barBackColor = [UIColor colorWithWhite:0.9 alpha:1];
+    self.barFrontColor = [UIColor redColor];
+    self.cornerRadius = 5;
+}
 
 -(void)drawRect:(CGRect)rect{
-    CGContextRef con =  UIGraphicsGetCurrentContext();
-    CGRect labelText = [@"aaaa" boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:11]} context:nil];
-    [@"aaaa" drawInRect:rect withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:11]}];
+    CGSize topLabelSize = self.topText?[self.topText boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.topFont} context:nil].size:CGSizeZero;
+    CGSize middleLabelSize = self.middleText?[self.middleText boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.middleFont} context:nil].size:CGSizeZero;
+    CGSize bottomLabelSize = self.bottomText?[self.bottomText boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:self.bottomFont} context:nil].size:CGSizeZero;
     
-    UIBezierPath *bar = [UIBezierPath bezierPathWithRoundedRect:UIEdgeInsetsInsetRect(rect, UIEdgeInsetsMake(labelText.size.height, 0, 0, 0)) cornerRadius:5];
-    [[UIColor grayColor] setFill];
-    [bar fill];
+    CGFloat topSpaceFromBar = topLabelSize.height>0?topLabelSize.height + INBarViewTextAndBarSpace:0;
+    CGFloat bottomSpaceFromBar = bottomLabelSize.height>0?bottomLabelSize.height + INBarViewTextAndBarSpace:0;
+    
+    CGRect barRect = UIEdgeInsetsInsetRect(rect, UIEdgeInsetsMake(topSpaceFromBar, 0, bottomSpaceFromBar, 0));
+    
+    if (self.topText) {
+        [self.topText drawInRect:CGRectMake((rect.size.width - topLabelSize.width)/2.0, 0, topLabelSize.width, topLabelSize.height) withAttributes:@{NSFontAttributeName:self.topFont}];
+    }
+    
+    if (self.bottomText) {
+        [self.bottomText drawInRect:CGRectMake((rect.size.width - bottomLabelSize.width)/2.0, CGRectGetMaxY(barRect) + INBarViewTextAndBarSpace, bottomLabelSize.width, bottomLabelSize.height) withAttributes:@{NSFontAttributeName:self. bottomFont}];
+    }
+    
+    UIBezierPath *back = [UIBezierPath bezierPathWithRoundedRect:barRect cornerRadius:self.cornerRadius];
+    [self.barBackColor setFill];
+    [back fill];
+    
+    if (self.middleText) {
+        [self.middleText drawInRect:CGRectMake((rect.size.width - middleLabelSize.width)/2.0, CGRectGetMidY(barRect) - middleLabelSize.height / 2.0, middleLabelSize.width, middleLabelSize.height) withAttributes:@{NSFontAttributeName:self. middleFont}];
+    }
+    
+    CGRect frontRect = UIEdgeInsetsInsetRect(barRect, UIEdgeInsetsMake(barRect.size.height*(1 - self.percent), 0, 0, 0));
+
+    UIBezierPath *front = [UIBezierPath bezierPathWithRoundedRect:frontRect byRoundingCorners:UIRectCornerBottomLeft|UIRectCornerBottomRight cornerRadii:CGSizeMake(self.cornerRadius, self.cornerRadius)];
+    [self.barFrontColor setFill];
+    [front fillWithBlendMode:kCGBlendModeSourceAtop alpha:1];
 
     
 }
