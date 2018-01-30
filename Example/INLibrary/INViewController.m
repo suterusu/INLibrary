@@ -21,7 +21,6 @@
     
     
     
-    
     NSDictionary *ss = [self properties];
     
     NSDate *date = [NSDate date];
