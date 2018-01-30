@@ -15,9 +15,10 @@
 
 
 /*0~1*/
-@property (nonatomic) CGFloat percent;
+@property (nonatomic) float percent;
 
 @property (nonatomic) CGFloat cornerRadius;
+@property (nonatomic) CGFloat barRightLeftCap;
 
 @property (nonatomic) UIColor *barFrontColor;
 @property (nonatomic) UIColor *barBackColor;

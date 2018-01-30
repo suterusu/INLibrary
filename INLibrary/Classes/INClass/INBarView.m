@@ -7,7 +7,7 @@
 
 #import "INBarView.h"
 
-#define INBarViewTextAndBarSpace 2
+#define INBarViewTextAndBarSpace 3
 
 @interface INBarView ()
 
@@ -43,7 +43,8 @@
     self.bottomFont = [UIFont systemFontOfSize:10];
     self.barBackColor = [UIColor colorWithWhite:0.9 alpha:1];
     self.barFrontColor = [UIColor redColor];
-    self.cornerRadius = 5;
+    self.cornerRadius = 2;
+    self.barRightLeftCap = 7;
 }
 
 -(void)drawRect:(CGRect)rect{
@@ -54,14 +55,21 @@
     CGFloat topSpaceFromBar = topLabelSize.height>0?topLabelSize.height + INBarViewTextAndBarSpace:0;
     CGFloat bottomSpaceFromBar = bottomLabelSize.height>0?bottomLabelSize.height + INBarViewTextAndBarSpace:0;
     
-    CGRect barRect = UIEdgeInsetsInsetRect(rect, UIEdgeInsetsMake(topSpaceFromBar, 0, bottomSpaceFromBar, 0));
+    CGRect barRect = UIEdgeInsetsInsetRect(rect, UIEdgeInsetsMake(topSpaceFromBar, self.barRightLeftCap, bottomSpaceFromBar, self.barRightLeftCap));
     
+    
+    NSMutableParagraphStyle *paragrahpStyle = [[NSMutableParagraphStyle alloc]init];
+    paragrahpStyle.alignment = NSTextAlignmentCenter;
     if (self.topText) {
-        [self.topText drawInRect:CGRectMake((rect.size.width - topLabelSize.width)/2.0, 0, topLabelSize.width, topLabelSize.height) withAttributes:@{NSFontAttributeName:self.topFont}];
+        
+        [self.topText drawInRect:CGRectMake((rect.size.width - topLabelSize.width)/2.0, 0, topLabelSize.width, topLabelSize.height) withAttributes:@{NSFontAttributeName:self.topFont,NSParagraphStyleAttributeName:paragrahpStyle}];
     }
     
     if (self.bottomText) {
-        [self.bottomText drawInRect:CGRectMake((rect.size.width - bottomLabelSize.width)/2.0, CGRectGetMaxY(barRect) + INBarViewTextAndBarSpace, bottomLabelSize.width, bottomLabelSize.height) withAttributes:@{NSFontAttributeName:self. bottomFont}];
+        NSMutableParagraphStyle *paragrahpStyle = [[NSMutableParagraphStyle alloc]init];
+        paragrahpStyle.alignment = NSTextAlignmentCenter;
+        
+        [self.bottomText drawInRect:CGRectMake((rect.size.width - bottomLabelSize.width)/2.0, CGRectGetMaxY(barRect) + INBarViewTextAndBarSpace, bottomLabelSize.width, bottomLabelSize.height) withAttributes:@{NSFontAttributeName:self. bottomFont,NSParagraphStyleAttributeName:paragrahpStyle}];
     }
     
     UIBezierPath *back = [UIBezierPath bezierPathWithRoundedRect:barRect cornerRadius:self.cornerRadius];
@@ -69,7 +77,7 @@
     [back fill];
     
     if (self.middleText) {
-        [self.middleText drawInRect:CGRectMake((rect.size.width - middleLabelSize.width)/2.0, CGRectGetMidY(barRect) - middleLabelSize.height / 2.0, middleLabelSize.width, middleLabelSize.height) withAttributes:@{NSFontAttributeName:self. middleFont}];
+        [self.middleText drawInRect:CGRectMake((rect.size.width - middleLabelSize.width)/2.0, CGRectGetMidY(barRect) - middleLabelSize.height / 2.0, middleLabelSize.width, middleLabelSize.height) withAttributes:@{NSFontAttributeName:self. middleFont,NSParagraphStyleAttributeName:paragrahpStyle}];
     }
     
     CGRect frontRect = UIEdgeInsetsInsetRect(barRect, UIEdgeInsetsMake(barRect.size.height*(1 - self.percent), 0, 0, 0));
