@@ -28,6 +28,17 @@ static inline void INLogForBits(NSUInteger uint) {
     return;
 }
 
+static inline CGRect INRectCenterdRectMakeInContainer(CGSize itemSize,CGRect containerRect) {
+    CGFloat height = itemSize.height<containerRect.size.height?itemSize.height:containerRect.size.height;
+    CGFloat width = itemSize.width<containerRect.size.width?itemSize.width:containerRect.size.width;
+    
+    CGFloat originY = (containerRect.size.height - height)/2.0;
+    CGFloat originX = (containerRect.size.width - width)/2.0;
+    
+    return  CGRectMake(originX, originY, width, height);
+}
+
+
 
 static inline UIEdgeInsets INEdgeOutsetMake(UIEdgeInsets inset) {
     UIEdgeInsets outsets = {-inset.top, -inset.left, -inset.bottom, -inset.right};

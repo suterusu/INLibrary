@@ -44,7 +44,7 @@
 
 @interface INPopupTransitioningManager (){
     CGRect _screenFrame;
-    __weak INPopupTransitionPresentationController *_popupTransitionPresentationController;
+    INPopupTransitionPresentationController *_popupTransitionPresentationController;
 }
 
 @end
@@ -75,6 +75,7 @@
     
     
     if (fromView == nil) {
+        toView.frame = endRect;
         toView.alpha = 0;
         toView.backgroundColor = [UIColor colorWithWhite:0 alpha:.6];
         [containerView addSubview:toView];
