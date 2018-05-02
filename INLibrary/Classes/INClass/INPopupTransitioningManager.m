@@ -44,8 +44,10 @@
 
 @interface INPopupTransitioningManager (){
     CGRect _screenFrame;
-    INPopupTransitionPresentationController *_popupTransitionPresentationController;
 }
+
+@property (weak,nonatomic) INPopupTransitionPresentationController *popupTransitionPresentationController;
+
 
 @end
 
