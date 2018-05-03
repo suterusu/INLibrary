@@ -12,6 +12,13 @@
 
 @implementation NSString (INUtil)
 
+-(NSString *)newlineToSpaceText{
+    NSArray *split = [self componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]];
+    split = [split filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"length > 0"]];
+    NSString *res = [split componentsJoinedByString:@" "];
+    return res;
+}
+
 -(NSInteger)lineNumber{
     return [self componentsSeparatedByCharactersInSet:[NSCharacterSet newlineCharacterSet]].count;
 }

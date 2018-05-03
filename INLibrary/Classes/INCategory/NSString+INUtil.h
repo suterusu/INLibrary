@@ -11,6 +11,7 @@
 @interface NSString (INUtil)
 
 
+-(NSString *)newlineToSpaceText;
 //改行文字の数+1
 -(NSInteger)lineNumber;
 
