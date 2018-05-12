@@ -16,6 +16,10 @@
     [self.titleLabel addObserver:self forKeyPath:@"textColor" options:NSKeyValueObservingOptionNew context:nil];
 }
 
+-(void)dealloc{
+    [self.titleLabel removeObserver:self forKeyPath:@"textColor"];
+}
+
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSKeyValueChangeKey,id> *)change context:(void *)context{
     NSLog(@"cha%@",change);
     
