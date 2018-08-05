@@ -6,3 +6,4 @@
 #import "NSMutableDictionary+INUtil.h"
 #import "UIViewController+INUtil.h"
 #import "NSMutableArray+INTest.h"
+#import "NSError+INUtil.h"

@@ -10,6 +10,8 @@
 
 @interface NSMutableArray (INUtil)
 
+-(void)enqueue:(id)obj;
+-(id)dequeue;
 - (void)shuffle;
 
 @end

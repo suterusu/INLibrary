@@ -10,6 +10,22 @@
 
 @implementation NSMutableArray (INUtil)
 
+-(void)enqueue:(id)obj{
+    [self addObject:obj];
+}
+
+-(id)dequeue{
+    if (self.count == 0) {
+        return nil;
+    }
+    
+    id ret = self[0];
+    
+    [self removeObject:ret];
+    
+    return ret;
+}
+
 - (void)shuffle
 {
     NSUInteger count = [self count];
