@@ -33,9 +33,7 @@
     UIView *containerView = [transitionContext containerView];
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
-    UIViewController *fromVC = [transitionContext viewControllerForKey:UITransitionContextFromViewControllerKey];
     UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    CGRect endRect = [transitionContext finalFrameForViewController:toVC];
     
     
     if (fromView == nil) {
