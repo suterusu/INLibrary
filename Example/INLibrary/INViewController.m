@@ -8,7 +8,6 @@
 
 #import "INViewController.h"
 #import "objc/runtime.h"
-
 #import <INLibrary/INClass.h>
 
 @interface INViewController ()
@@ -31,7 +30,6 @@
     
     [self.view addSubview:aa];
     
-    NSDictionary *ss = [self properties];
     
     NSDate *date = [NSDate date];
     NSDateFormatter *format = [[NSDateFormatter alloc]init];

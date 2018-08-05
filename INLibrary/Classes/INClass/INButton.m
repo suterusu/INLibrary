@@ -39,7 +39,7 @@
 }
 
 - (BOOL)continueTrackingWithTouch:(UITouch *)touch withEvent:(nullable UIEvent *)event{
-    BOOL isIn = [self hitTest:[touch locationInView:self] withEvent:event];
+    UIView *isIn = [self hitTest:[touch locationInView:self] withEvent:event];
     if (isIn) {
         [self setTintColor:[self.tintColor colorWithAlphaComponent:0.3]];
         //[self setTitleColor:[self.currentTitleColor colorWithAlphaComponent:0.3] forState:UIControlStateNormal];
