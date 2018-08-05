@@ -33,8 +33,6 @@
     UIView *containerView = [transitionContext containerView];
     UIView *fromView = [transitionContext viewForKey:UITransitionContextFromViewKey];
     UIView *toView = [transitionContext viewForKey:UITransitionContextToViewKey];
-    UIViewController *toVC = [transitionContext viewControllerForKey:UITransitionContextToViewControllerKey];
-    
     
     if (fromView == nil) {
         toView.alpha = 0;
