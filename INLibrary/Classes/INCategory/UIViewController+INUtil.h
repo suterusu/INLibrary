@@ -14,6 +14,8 @@
 
 -(void)showAlertAtTitle:(NSString *)title Message:(NSString *)message;
 
+-(void)showAlertAtTitle:(NSString *)title Message:(NSString *)message Forcehandler:(void (^)(UIAlertAction *action))handler;
+
 -(void)showAlertAtTitle:(NSString *)title Message:(NSString *)message Yeshandler:(void (^)(UIAlertAction *action))handler;
 
 @end

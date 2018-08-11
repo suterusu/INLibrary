@@ -24,6 +24,11 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
+-(void)showAlertAtTitle:(NSString *)title Message:(NSString *)message Forcehandler:(void (^)(UIAlertAction *))handler{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:NSLocalizedString(@"CommonText_YES", nil) style:UIAlertActionStyleDefault handler:handler]];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 -(void)showAlertAtTitle:(NSString *)title Message:(NSString *)message Yeshandler:(void (^ __nullable)(UIAlertAction *action))handler{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
