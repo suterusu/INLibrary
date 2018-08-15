@@ -2,3 +2,4 @@
 #import "INPopupTransitionAnimator.h"
 #import "INBarView.h"
 #import "INButton.h"
+#import "INSlideTabbarController.h"
